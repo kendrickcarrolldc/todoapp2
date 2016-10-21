@@ -24,6 +24,7 @@ var routerApp = angular.module("toDoApp", ['ui.router'])
 		}
 		
 		$scope.notes = [];
+		var note1 = $scope.notes[0];
     
 	
 	
@@ -32,10 +33,16 @@ var routerApp = angular.module("toDoApp", ['ui.router'])
 //		
 //	}
 //	
-//	$scope.deleteNote = function {
+	$scope.delete = function(i, note1) {
+		if (note1) {
+			$scope.notes.splice(note1, 1)
+		}
+		else{
+		alert("delete is working");
+		$scope.notes.splice(i, 1);
 //		
-//	}
-//	
+	};
+	}
 })
 
 
