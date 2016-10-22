@@ -1,74 +1,47 @@
-
 var routerApp = angular.module("toDoApp", ['ui.router'])
 
 
-// router config at bottom *
+routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
+	$urlRouterProvider.otherwise('/');
 
-.controller("mainCtrl", function($scope, $state) {
-	
-	
-	$scope.addNote = function() {
-		console.log("adding note");
-		alert("Im working")
-		$scope.newNote = {};
-      $scope.newNote.createdOn = Date.now();
-      $scope.newNote.text = ' ';
-      $scope.newNote.edit = true;
-      $scope.notes.push($scope.newNote);
-      $scope.newNote = {};
-    };
-		
-		$scope.reloadData = function() {
-			$state.reload();
-		}
-		
-		$scope.notes = [];
-		var note1 = $scope.notes[0];
-    
-	
-	
-	
-//	$scope.editNote = function {
-//		
-//	}
-//	
-	$scope.delete = function(i, note1) {
-		if (note1) {
-			$scope.notes.splice(note1, 1)
-		}
-		else{
-		alert("delete is working");
-		$scope.notes.splice(i, 1);
-//		
-	};
-	}
+	$stateProvider
+		.state('addNote', {
+			url: '/addNote', // this is the just url the view will change to with the #
+			templateUrl: 'app/add/addNote.html',
+			controller: 'noteCtrl'
+		})
+		.state('/', {
+			url: '/',
+			templateUrl: 'app/noteHome/noteHome.html'
+//			controller: 'noteCtrl'
+		})
+
 })
 
-
-//routerApp.config(function($stateProvider, $urlRouterProvider) {
-//		
-//	$urlRouterProvider.otherwise('/');
+//routerApp.controller("noteCtrl", function ($scope) {
+//
+//	$scope.notes = [];
+//
+//	$scope.addNote = function () {
+//		console.log("adding note");
+//		alert("Im working")
+//		$scope.newNote = {};
+//		$scope.newNote.createdOn = Date.now();
+//		$scope.newNote.text = ' ';
+//		$scope.newNote.edit = true;
+//		$scope.notes.push($scope.newNote);
+//		$scope.newNote = {};
+//	};
 //	
-//	$stateProvider
-//	
-//	
-//	
-//		.state('addNote', {
-//			url: '/addNote',
-//			templateUrl: 'app/addNote.html',
-//			controller: 'mainCtrl',
-//			
-//			
-//	})
-//	
-//		.state('editNote', {
-//			url: '/editNote',
-//			templateUrl: 'app/editNote.js'
-//	})
-//		
-//		.state('deleteNote', {
-//			url: '/deleteNote',
-//			templateUrl: 'app/deleteNote.js'
-//	})
+//$scope.reloadData = function() {
+//			$state.reload();
+//		}
+//
+//
+//	$scope.remove = function (note) {
+//		var index = $scope.notes.indexOf(note);
+//		$scope.notes.splice(index, 1);
+//	}
+//
 //})
