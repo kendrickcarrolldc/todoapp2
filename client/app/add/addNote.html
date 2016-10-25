@@ -1,11 +1,17 @@
 <button class="btn" ng-click="addNote()">Add Note</button>
 <div class="note" ng-repeat="note in notes | orderBy:'createdOn':true">
+<!--
       <span class="date">{{note.createdOn | date:"EEEE dd MMMM, yyyy 'at' h:mma"}}
-				<img class="icons" src="xbutton.svg" width="30px" height="30px" alt="delete button" ng-click="remove(note)"></span>
+				</span>
       
+-->
       
-      <div class="markdown-body" ng-model="note.text" ng-focus="note.edit = true" ng-blur="note.edit = false" markdown-editable contenteditable="true">
-				{{note.text}}
+      <div id="editable" contenteditable="true" ng-model="note.text" ng-focus="note.edit = true" ng-blur="note.edit = false" >
+				<span class="date">{{note.createdOn | date:"EEEE dd MMMM, yyyy 'at' h:mma"}}
+				</span>
+				<img class="icons" src="xbutton.svg" width="30px" height="30px" alt="delete button" ng-click="remove(note)">
+				<h2 placeholder="Title here">Create a Title</h2>
+    <p placeholder="description here">describe your todo</p>
 				</div>
 
     </div>

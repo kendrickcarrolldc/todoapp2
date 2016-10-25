@@ -1,16 +1,22 @@
 angular.module('toDoApp')
-.controller("noteCtrl", function($scope, $state) {
+.constant('baseUrl', "http://localhost:3000/notes/")
+.controller("noteCtrl", function($scope, $http,$resource, baseUrl) {
 	
 	
 	$scope.addNote = function() {
-		console.log("adding note");
-		alert("Im working")
-		$scope.newNote = {};
+		$http.post(baseUrl, product).sucees(function(newProduct) {
+		
+			console.log("adding note");
+			alert("Im working")
+			$scope.newNote = {};
       $scope.newNote.createdOn = Date.now();
       $scope.newNote.text = ' ';
       $scope.newNote.edit = true;
       $scope.notes.push($scope.newNote);
-      $scope.newNote = {};
+      $scope.newNote = {};	
+			
+		})
+		
     
 	};
 	
@@ -27,8 +33,12 @@ angular.module('toDoApp')
 	$scope.notes = [];
 
 	$scope.remove = function(note) { 
+		$http({
+			method: 'DELETE',
+			url: baseUrl + product.id
+		}).success(function() {
   var index = $scope.notes.indexOf(note);
   $scope.notes.splice(index, 1);     
-}
+});
 	
-})
+}

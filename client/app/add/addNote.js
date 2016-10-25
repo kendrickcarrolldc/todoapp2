@@ -14,10 +14,8 @@ routerApp.controller("noteCtrl", function ($scope) {
 		console.log('note created');
 	};
 	
-$scope.reloadData = function() {
-			$state.reload();
-		}
 
+$scope.notes = [];
 
 	$scope.remove = function (note) {
 		var index = $scope.notes.indexOf(note);

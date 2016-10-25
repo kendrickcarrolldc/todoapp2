@@ -1,4 +1,4 @@
-var routerApp = angular.module("toDoApp", ['ui.router'])
+var routerApp = angular.module("toDoApp", ['ui.router', 'ngResource'])
 
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
