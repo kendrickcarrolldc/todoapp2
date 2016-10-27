@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 
 var interface = {
     getList: function(req,res,next){
-        Product.find({})
+       Note.find({})
             .then(function(notes){
                 res.send(notes)
             })
@@ -14,6 +14,7 @@ var interface = {
     },
     save: function(req,res,next){
         var id = req.params.id;
+			
         if(!id) {
             id=new mongoose.mongo.ObjectID()
         }

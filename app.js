@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 var http = require('http');
-//var notes = require('./api/notes');
+var notes = require('./api/notes');
 //Endpoint dependencies
 
 //START BY UNDOING THIS AND GETTING THIS SERVER RUNNING!!!!!!!
@@ -37,12 +37,17 @@ app.use(function(req, res, next) {
 	next();
 })
 
-//app.use("/notes", notes);
+app.use("/notes", notes);
 
 //Default router
 app.use('/', function(req, res, next) {
 
 	res.sendFile(__dirname+'/client/index.html')
+})
+
+app.use('*', function(req, res, next) {
+
+	res.status(404).end()
 })
 
 //Error Handler

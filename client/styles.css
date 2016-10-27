@@ -16,6 +16,21 @@ img {
   height:auto;
 }
 
+#form-container {
+	
+
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 70%;
+              position:absolute;
+              top: 40%;
+              z-index: 5px;
+              display:none;
+
+          
+}
+
 div[contenteditable] {
   font-size:1.2em;
   

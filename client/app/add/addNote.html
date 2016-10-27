@@ -1,17 +1,62 @@
+<!--
 <button class="btn" ng-click="addNote()">Add Note</button>
-<div class="note" ng-repeat="note in notes | orderBy:'createdOn':true">
+<div class="note" ng-repeat="note in notes | orderBy:'created':true">
+-->
 <!--
       <span class="date">{{note.createdOn | date:"EEEE dd MMMM, yyyy 'at' h:mma"}}
 				</span>
       
 -->
-      
-      <div id="editable" contenteditable="true" ng-model="note.text" ng-focus="note.edit = true" ng-blur="note.edit = false" >
-				<span class="date">{{note.createdOn | date:"EEEE dd MMMM, yyyy 'at' h:mma"}}
+
+<!--      <div class="toDoItem" >-->
+<!--
+				<span class="date">{{note.created | date:"EEEE dd MMMM, yyyy 'at' h:mma"}}
 				</span>
+-->
+<!--
 				<img class="icons" src="xbutton.svg" width="30px" height="30px" alt="delete button" ng-click="remove(note)">
-				<h2 placeholder="Title here">Create a Title</h2>
-    <p placeholder="description here">describe your todo</p>
+				<h2>{{note.title}}</h2>
+    <p>{{note.description}}</p>
 				</div>
 
     </div>
+-->
+
+<!--// old code that worked-->
+
+<div class="form-container">
+	<form ng-submit="">
+		<div class="formT">
+			<label for="title">Title:</label>
+			<input type="text" class="form-control" id="title" placeholder="Title" ng-model="note.title">
+		</div>
+		<div class="formD">
+			<label for="description">Description:</label>
+			<textarea class="form-control" id="description" placeholder="Description" ng-model="note.description"></textarea>
+		</div>
+		<!--        <button ng-click="saveIt(note)">save</button>-->
+		<button class="btn" ng-click="addNote(); saveIt()">Add Note</button>
+		<!--			<button class="btn" ng-click="saveIt()">save note</button>-->
+	</form>
+</div>
+<div class="note" ng-repeat="note in notes | orderBy:'created':true">
+<!--	{{note}}-->
+	<!--
+     <span class="date">{{note.createdOn | date:"EEEE dd MMMM, yyyy 'at' h:mma"}}
+                </span>
+-->
+
+
+	<div id="editable" contenteditable="true" ng-model="note.text" ng-focus="note.edit = true" ng-blur="note.edit = false">
+<!--
+		<span class="date">{{note.created | date:"EEEE dd MMMM, yyyy 'at' h:mma"}}
+                </span>
+-->
+		<img class="icons" src="xbutton.svg" width="30px" height="30px" alt="delete button" ng-click="remove(note)">
+
+
+		<h2>{{note.title}}</h2>
+		<p>{{note.description}}</p>
+	</div>
+	<!--<button ng-click="saveIt(note)">Save</button>-->
+</div>

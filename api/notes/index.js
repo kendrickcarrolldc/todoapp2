@@ -1,13 +1,13 @@
 var express = require("express");
 var router = express.Router();
-var controller = require("./notes.model.js");
+var controller = require("./note.controller.js");
 //Restart Database
 require("./index.js");
 
 
-router.get("/",controller.getNotes);
-router.post("/:id",controller.add);
-//router.post("/",controller.save);
-//router.delete("/:id",controller.delete);
+router.get("/",controller.getList);
+router.post("/:id",controller.save);
+router.post("/",controller.save);
+router.delete("/:id",controller.delete);
 
 module.exports = router;
