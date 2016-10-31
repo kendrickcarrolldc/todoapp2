@@ -12,7 +12,7 @@ var noteSchema = new mongoose.Schema({
 		required: true
 	},
 	created: {
-		type: Date.now,
+		type: Date,
 		required: true
 		
 	}
