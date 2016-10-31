@@ -1,15 +1,23 @@
 angular.module('toDoApp')
 .constant('baseUrl', "http://localhost:3000/notes/")
-.controller("noteCtrl", function($scope, $http,$resource, baseUrl,toDoService) {
+.controller("noteCtrl", function($scope, $http,$resource, baseUrl,toDoService, $state) {
 	
 	$scope.notes=toDoService.notes;
 	
-//	
-	$scope.addNote = function() {
+	$scope.date = new Date();
+
+	$scope.hideMe = function() {
+	$scope.hide();
+}
+	$scope.addNote = function(newNote) {
 		
-			newNote = {};
-     	
-		toDoService.createNote(newNote);
+			
+//			create = new Date();
+//			newNote.title = ' ';
+//			newNote.description = ' ';
+     
+			toDoService.createNote(newNote);
+		$state.go('addNote');
 //		$http.post(baseUrl, product).sucees(function(newProduct) {
 //		
 //			console.log("adding note");
@@ -25,8 +33,15 @@ angular.module('toDoApp')
 //		$scope.remove = function() { 
 
 	}
+		$scope.addedit = function(note) {
+		toDoService.updateNote(note);
+	}
+	
+	
 	$scope.saveIt = function(note) {
 		toDoService.updateNote(note);
+		console.log("hit save It")
+		$state.go('addNote');
 	}
 		$scope.remove = 
 		toDoService.deleteNote;	

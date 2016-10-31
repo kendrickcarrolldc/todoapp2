@@ -31,9 +31,21 @@ angular.module('toDoApp')
 	}
 	
 	this.updateNote = function(note) {
-		note.$save();
-		this.editedNote = null;
-	}
+	alert('hit1');
+        this.editing = true;
+        this.note = angular.copy(note);
+    }
+
+
+	
+//	this.updateNote = function(note) {
+//		note.$save().then(function(newNote){;
+//		
+//	});
+//		this.editedNote = null;									
+//											}
+	
+	
 	this.startEdit = function(note) {
 		this.editedNote = note;
 	}

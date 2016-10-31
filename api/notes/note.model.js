@@ -3,20 +3,25 @@ var Schema = mongoose.Schema;
 
 var noteSchema = new mongoose.Schema({
 	title: {
-		text: String,
+		type: String,
 		required: true
 		
 	},
 	description: {
-		text: String,
+		type: String,
 		required: true
 	},
 	created: {
-		type: Number,
+		type: Date.now,
 		required: true
+		
 	}
 	
 });
 
 var Note = mongoose.model('note', noteSchema);
 module.exports = Note;
+
+
+//Title: String,
+//	Description: String

@@ -4,53 +4,37 @@
 <head>
 	<title>ToDoApp</title>
 	<meta charset="utf-8">
-	
+
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 	<link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-	<script src= "bower_components/angular/angular.js"></script>
-		<script src= "bower_components/angular-route/angular-route.js"></script>
-	<script src= "bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.js"></script>
-	
+
 
 	<script src="./main.js"></script>
 	<script src="./app/controller.js"></script>
 	<script src="./app/add/addNote.js"></script>
 	<script src="./app/services/services.js"></script>
-	
+
 </head>
 
 <body ng-app="toDoApp">
-	<header><h1>Note Me</h1>
-	
+	<header>
+		<h1 align="center">Note Me</h1>
 
-</div>
+
+
 	</header>
-	
-<!--
-	<div class="form-container">
-    <form ng-submit="">
-        <div class="formT">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" placeholder="Title" ng-model="note.title">
-        </div>
-        <div class="formD">
-            <label for="description">Description:</label>
-            <textarea class="form-control" id="description" placeholder="Description" ng-model="note.description"></textarea>
-        </div>
-        <button class="btn" ng-click="saveIt(note)">save</button>
-       
-    </form>
--->
-	...making app
-<button class="btn" ui-sref="addNote">start taking notes</button>
 
-<div class="container">
-     <ui-view>
-			<p>Some content will load here!</p>
-			</ui-view>
-    </div>
-</body>
+	<button class="btn" ng-click="hideMe()" ui-sref="edit">start taking notes</button>
+
+
+	<div ui-view>
+		<p>Some content will load here!</p>
+	</div>
+
 </html>

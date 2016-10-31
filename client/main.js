@@ -16,6 +16,11 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
 			templateUrl: 'app/noteHome/noteHome.html'
 //			controller: 'noteCtrl'
 		})
+		.state('edit', {
+			url: '/edit', // this is the just url the view will change to with the #
+			templateUrl: 'app/edit/edit.html',
+			controller: 'noteCtrl'
+		})
 
 })
 
