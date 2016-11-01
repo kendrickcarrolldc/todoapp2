@@ -30,10 +30,19 @@ angular.module('toDoApp')
 		})
 	}
 	
-	this.updateNote = function(note) {
-	alert('hit1');
-        this.editing = true;
-        this.note = angular.copy(note);
+	this.updateNote = function() {
+	
+       this.editedNote.$save()
+								.then(function(note) {
+								console.log(self.notes.indexOf(note._id))
+								
+								for (var i = 0; i < self.notes.length; i++) {
+									if (self.notes[i]._id === note._id) {
+										self.notes[i] = note;// uses most recent note after server init
+									}
+								}
+								})
+      //  this.note = angular.copy(note);
     }
 
 
@@ -42,12 +51,12 @@ angular.module('toDoApp')
 //		note.$save().then(function(newNote){;
 //		
 //	});
-//		this.editedNote = null;									
-//											}
+		this.editedNote = null;									
+										//	}
 	
 	
 	this.startEdit = function(note) {
-		this.editedNote = note;
+		this.editedNote = angular.copy(note);
 	}
 	
 	this.cancelEdit = function() {

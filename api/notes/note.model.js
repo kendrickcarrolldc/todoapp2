@@ -15,7 +15,10 @@ var noteSchema = new mongoose.Schema({
 		type: Date,
 		required: true
 		
-	}
+	},
+	editedNote: {
+		type: Date
+}
 	
 });
 

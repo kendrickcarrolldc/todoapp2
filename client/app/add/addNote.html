@@ -44,18 +44,19 @@
 
 
 <!--<section>-->
-<div ng-click="edit" class="noted" ng-repeat="note in notes | orderBy:'created':true">
+<div ng-click="edit" class="noted" ng-repeat="note in notes | orderBy:'created':true" >
 <!--    {{note}}-->
 
 
     <div class="toDoItem">
 
         <img class="icons" src="xbutton.svg" width="30px" height="30px" alt="delete button" ng-click="remove(note)">
-<button type="button" class="btn btn-info" ui-sref="edit">edit</button>
+<button type="button" class="btn btn-info" ng-click="selectedNote(note)">edit</button>
 
         <h2>{{note.title}}</h2>
    <p>{{note.description}}</p>
-			<h6>created on: {{date | date: 'yyyy-MM-dd'}}</h6>
+			<h6>created on: {{note.created | date: 'short'}}</h6>
+					<h6>edited on: {{note.editedNote | date: 'short'}}</h6>
 <!--   <p ng-bind-html="date"></p>    -->
     </div>
     <!--<button ng-click="saveIt(note)">Save</button>-->
