@@ -1,64 +1,17 @@
-<!--
-<div class="form-container">
-    <form ng-submit="">
-        <div class="formT">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" placeholder="Title" ng-model="noted.title">
-        </div>
-        <div class="formD">
-            <label for="description">Description:</label>
-            <textarea class="form-control" id="description" placeholder="Description" ng-model="noted.description"></textarea>
-        </div>
-                <button ng-click="saveIt(note)">save</button>
-        <button class="btn" ng-click="addNote(noted)">Add Note</button>
-				<button class="btn" ng-click="saveIt()">save note</button>
-    </form>
+<div ng-click="edit" class="noted" ng-repeat="note in notes | orderBy:'created':true">
+	<!--    {{note}}-->
+
+
+	<div class="toDoItem">
+
+		<img class="icons" src="xbutton.svg" width="30px" height="30px" alt="delete button" ng-click="remove(note)">
+		<button type="button" class="btn btn-info" ng-click="selectedNote(note)">edit</button>
+
+		<h2>{{note.title}}</h2>
+		<p>{{note.description}}</p>
+		<h6>created on: {{note.created | date: 'short'}}</h6>
+		<h6>edited on: {{note.editedNote | date: 'short'}}</h6>
+
+	</div>
+
 </div>
---><style>
-/*
-	section {
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
-		flex-grow: 1;
-	}
-	
-	button {
-		display: none;
-	}
-*/
-	
-	
-	
-/*
-	@media screen and (max-width: 768px) {
-  section {
-    max-width: 400px;
-  }
-		
-		
-	}
-*/
-
-</style>
-
-
-<!--<section>-->
-<div ng-click="edit" class="noted" ng-repeat="note in notes | orderBy:'created':true" >
-<!--    {{note}}-->
-
-
-    <div class="toDoItem">
-
-        <img class="icons" src="xbutton.svg" width="30px" height="30px" alt="delete button" ng-click="remove(note)">
-<button type="button" class="btn btn-info" ng-click="selectedNote(note)">edit</button>
-
-        <h2>{{note.title}}</h2>
-   <p>{{note.description}}</p>
-			<h6>created on: {{note.created | date: 'short'}}</h6>
-					<h6>edited on: {{note.editedNote | date: 'short'}}</h6>
-<!--   <p ng-bind-html="date"></p>    -->
-    </div>
-    <!--<button ng-click="saveIt(note)">Save</button>-->
-</div>
-<!--	</section>-->
